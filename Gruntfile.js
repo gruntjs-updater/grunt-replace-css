@@ -48,6 +48,7 @@ module.exports = function (grunt) {
                     prefix: '',
                     offset: 0,
                     remove_blank_lines: true,
+                    config_parameter_name: 'css',
                     replace: {selector: 'head', html: '<!-- css -->'}
                 },
                 files: {

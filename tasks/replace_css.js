@@ -71,7 +71,8 @@ module.exports = function (grunt) {
             separator: '',
             offset: 0,
             replace: undefined,
-            remove_blank_lines: false
+            remove_blank_lines: false,
+            config_parameter_name: 'css_filenames'
         });
 
         // Iterate over all specified file groups.
@@ -129,8 +130,8 @@ module.exports = function (grunt) {
                 matchArray.push({selector: 'link', attribute: 'href', value: css_files[i]});
                 css_offset_files.push(css_files[i].substring(options.offset));
             }
-            grunt.config.set("css_filenames", css_offset_files);
-            var test = grunt.config.get('css_filenames');
+            grunt.config.set(options.config_parameter_name, css_offset_files);
+            var test = grunt.config.get(options.config_parameter_name);
 
             //grunt.log.writeln("test result " + test);
 

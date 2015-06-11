@@ -36,7 +36,7 @@ exports.replace_css = {
 
         //grunt.log.writeln("config " + grunt.config.get("css_filenames"));
 
-        test.equal(JSON.stringify(grunt.config.get("css_filenames")),
+        test.equal(JSON.stringify(grunt.config.get("css")),
             '["https://fast.fonts.net/cssapi/772638cf-801e-4331-a84b-2a0a3c7ff46b.css","/styles/bootstrap/css/bootstrap.min.css","/bower_components/font-awesome/css/font-awesome.min.css","/bower_components/leaflet/dist/leaflet.css","/styles/test.css","/styles/magnific-popup.css"]',
             "get css files should be same");
 
