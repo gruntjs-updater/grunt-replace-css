@@ -28,19 +28,6 @@ module.exports = function (grunt) {
             tests: ['tmp']
         },
 
-        copy: {
-            main: {
-                files: [
-                    // includes files within path
-                    {
-                        expand: true,
-                        src: ['index.html'],
-                        dest: 'dist/',
-                        filter: 'isFile'
-                    }
-                ]
-            }
-        },
         // Configuration to be run (and then tested).
         replace_css: {
             html_options: {
@@ -71,7 +58,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-nodeunit');
-    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Whenever the "test" task is run, first clean the "tmp" dir, then run this
     // plugin's task(s), then test the result.
