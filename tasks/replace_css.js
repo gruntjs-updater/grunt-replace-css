@@ -95,7 +95,7 @@ module.exports = function (grunt) {
             var htmlparser = require("htmlparser2");
             var parser = new htmlparser.Parser({
                 onopentag: function (name, attribs) {
-                    if (name === "link" && attribs.href !== undefined) {
+                    if (name === "link" && attribs.href !== undefined && attribs.href.match("css$")) {
                         if (options.prefix !== undefined) {
                             if (attribs.href.indexOf(options.prefix) == 0) {
                                 css_files.push(attribs.href);

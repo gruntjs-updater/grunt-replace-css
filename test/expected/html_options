@@ -5,6 +5,7 @@
     <!--[if lt IE 10]>
     <link href="/styles/ie.css" rel="stylesheet">
     <![endif]-->
+    <link rel="icon" href="/assets/ico/favicon.ico" type="image/x-icon">
     <title>Title abc</title>
 <!-- css -->
 </head>

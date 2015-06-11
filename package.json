@@ -1,7 +1,7 @@
 {
   "name": "grunt-replace-css",
   "description": "Replace all linked css files by one",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "https://github.com/paipeng/grunt-replace-css",
   "author": {
     "name": "Pai Peng",
