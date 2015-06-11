@@ -67,8 +67,10 @@ module.exports = function (grunt) {
     grunt.registerMultiTask('replace_css', 'Replace all linked css files by one', function () {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
-            punctuation: '.',
-            separator: ', ',
+            prefix: undefined,
+            separator: '',
+            offset: 0,
+            replace: undefined,
             remove_blank_lines: false
         });
 
@@ -92,12 +94,9 @@ module.exports = function (grunt) {
             var htmlparser = require("htmlparser2");
             var parser = new htmlparser.Parser({
                 onopentag: function (name, attribs) {
-                    grunt.log.writeln("tag " + name);
                     if (name === "link" && attribs.href !== undefined) {
                         if (options.prefix !== undefined) {
                             if (attribs.href.indexOf(options.prefix) == 0) {
-                                //console.log("prefix " + options.prefix);
-
                                 css_files.push(attribs.href);
                             }
                         } else {
@@ -133,7 +132,7 @@ module.exports = function (grunt) {
             grunt.config.set("css_filenames", css_offset_files);
             var test = grunt.config.get('css_filenames');
 
-            grunt.log.writeln("test result " + test);
+            //grunt.log.writeln("test result " + test);
 
             if (options.replace !== undefined) {
 
@@ -151,14 +150,9 @@ module.exports = function (grunt) {
 
                     var cheerio = require('cheerio');
                     var $ = cheerio.load(src, {lowerCaseAttributeNames: false});
-                    removeHTMLCode(filepath, matchArray, options.replace, options.remove_blank_lines, $);
-
+                    removeHTMLCode(f.dest, matchArray, options.replace, options.remove_blank_lines, $);
                 });
-
-
             }
-
-
             grunt.log.writeln('File "' + f.dest + '" created.');
         });
     });
